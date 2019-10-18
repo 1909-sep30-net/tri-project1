@@ -74,8 +74,8 @@ CREATE TABLE Inventory
 
 
 
---Insert Into Customer(CID, Names, Addresses, Phone) Values(1, 'Rotty Tops', 'Sequin Land', 8675309);
---Insert Into Customer(CID, Names, Addresses, Phone) Values(2, 'Cloud Strife', 'Midgar', 4548787);
+--Insert Into Customer(Names, Addresses, Phone) Values('Rotty Tops', 'Sequin Land', 8675309);
+--Insert Into Customer(Names, Addresses, Phone) Values('Cloud Strife', 'Midgar', 4548787);
 --Delete From Customer Where Customer.CID = 1;
 --Delete From Customer Where Customer.CID = 2;
 
