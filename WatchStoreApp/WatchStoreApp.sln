@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchStoreApp", "WatchStoreApp\WatchStoreApp.csproj", "{5A78A135-088C-4FE8-B185-7FD495A2099E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchStoreApp.Business", "WatchStoreApp.Business\WatchStoreApp.Business.csproj", "{AD90AB6F-42D9-4C40-BC7F-E95563FAA8C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchStoreApp.Data", "WatchStoreApp.Data\WatchStoreApp.Data.csproj", "{7E76F27E-1413-485B-A047-56B478270463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchStoreApp.Tests", "WatchStoreApp.Tests\WatchStoreApp.Tests.csproj", "{33AA480E-C611-4FB2-A2EB-DC6E5F455952}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A78A135-088C-4FE8-B185-7FD495A2099E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A78A135-088C-4FE8-B185-7FD495A2099E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A78A135-088C-4FE8-B185-7FD495A2099E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A78A135-088C-4FE8-B185-7FD495A2099E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD90AB6F-42D9-4C40-BC7F-E95563FAA8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD90AB6F-42D9-4C40-BC7F-E95563FAA8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD90AB6F-42D9-4C40-BC7F-E95563FAA8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD90AB6F-42D9-4C40-BC7F-E95563FAA8C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E76F27E-1413-485B-A047-56B478270463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E76F27E-1413-485B-A047-56B478270463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E76F27E-1413-485B-A047-56B478270463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E76F27E-1413-485B-A047-56B478270463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33AA480E-C611-4FB2-A2EB-DC6E5F455952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AA480E-C611-4FB2-A2EB-DC6E5F455952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AA480E-C611-4FB2-A2EB-DC6E5F455952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AA480E-C611-4FB2-A2EB-DC6E5F455952}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C22C4C5-984E-4592-A8F6-E060292AE017}
+	EndGlobalSection
+EndGlobal
