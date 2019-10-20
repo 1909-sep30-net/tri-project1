@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WatchStoreApp.Models.CustomerViewModel>
+
+@{ViewData["Title"] = "Index";
+}
+
+<h1><strong>Customer</strong></h1>
+
+<p>
+    <table class="table">
+        <thread>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+            </tr>
+        </thread>
+        <tbody>
+            @foreach(var cus in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelCus => cus.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelCus => cus.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelCus => cus.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelCus => cus.Phone)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>

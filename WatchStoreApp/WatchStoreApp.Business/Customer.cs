@@ -13,5 +13,11 @@ namespace WatchStoreApp.Business
         public string Address { get; set; }
 
         public string Phone { get; set; }
+
+        List<Customer> NumCustomer = new List<Customer>();
+        public Customer()
+        {
+
+        }
     }
 }

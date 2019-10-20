@@ -9,6 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Microsoft.EntityFrameworkCore;
+using WatchStoreApp.Data.Entities;
+using WatchStoreApp.Data.Repositories;
+using WatchStoreApp.Business.Interface;
+
 namespace WatchStoreApp
 {
     public class Startup
@@ -20,11 +25,23 @@ namespace WatchStoreApp
 
         public IConfiguration Configuration { get; }
 
+
+       
         // This method gets called by the runtime. Use this method to add services to the container.
+        // Where the connection is established
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<WatchStoreContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("WatchStore")));
+
+            //Add the repo you are going to use here
+            services.AddScoped<ICustomerRepository, CustomerRepo>();
+            services.AddScoped<IProductRepository, ProductRepo>();
+
             services.AddControllersWithViews();
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
