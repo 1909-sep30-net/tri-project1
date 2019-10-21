@@ -54,13 +54,13 @@ namespace WatchStoreApp.Controllers
         // POST: Customer/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("Name")]CustomerViewModel viewModel)
+        public ActionResult Create(CustomerViewModel viewModel)
         {
             try
             {
 
-                if (ModelState.IsValid)
-                {
+              //  if (ModelState.IsValid)
+               // {
                     var customer = new Customer
                     {
                         Name = viewModel.Name,
@@ -68,10 +68,14 @@ namespace WatchStoreApp.Controllers
                         Phone = viewModel.Phone
                     };
 
+                    Repo.AddCustomers(customer);
+                    Repo.Save();
 
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(viewModel);
+                    //return RedirectToAction(nameof(Index));
+              //  }
+                return RedirectToAction(nameof(Index));
+
+                //return View(viewModel);
             }
             catch
             {
@@ -82,23 +86,40 @@ namespace WatchStoreApp.Controllers
         // GET: Customer/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Customer customer = Repo.GetCustomerID(id);
+            var viewModel = new CustomerViewModel
+            {
+                //Do we have to assign the ID if the database is increments
+                //by itself?
+                Id = customer.CID,
+                Name = customer.Name,
+                Address = customer.Address,
+                Phone = customer.Phone
+            };
+
+            return View(viewModel);
         }
 
         // POST: Customer/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, CustomerViewModel viewModel)
         {
             try
             {
-                // TODO: Add update logic here
+                Customer customer = Repo.GetCustomerID(id);
+                customer.Name = viewModel.Name;
+                customer.Address = viewModel.Address;
+                customer.Phone = viewModel.Phone;
+
+                Repo.UpdateCustomers(customer);
+                Repo.Save();
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(viewModel);
             }
         }
 

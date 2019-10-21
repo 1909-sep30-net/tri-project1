@@ -12,10 +12,18 @@ namespace WatchStoreApp.Business.Interface
         //Gets all the customers
         public IEnumerable<Customer> GetCustomers(string name);
 
+        //Get a customer by a specific ID
+        public Customer GetCustomerID(int id);
+
         //Add a customer
 
-        void AddCustomers(Customer customer);
+        public void AddCustomers(Customer customer);
+
+        //Updating a customer
+        public void UpdateCustomers(Customer customer);
 
         void Save();
+        
+        //Should probably add a dispose method and extend IDisposable
     }
 }

@@ -34,6 +34,9 @@ namespace WatchStoreApp.Data.Repositories
             
         }
 
+        //Get Customer by their ID
+        public Business.Customer GetCustomerID(int id) => Mapper.MapCustomer(MyDBContext.Customer.Find(id));
+
         public void AddCustomers(Business.Customer customer)
         {
             //Need to check if customer is already in the database
@@ -42,6 +45,18 @@ namespace WatchStoreApp.Data.Repositories
 
             Entities.Customer entity = Mapper.MapCustomer(customer);
             MyDBContext.Add(entity);
+            MyDBContext.SaveChanges();
+        }
+
+        //Editing or updating customer
+        public void UpdateCustomers(Business.Customer customer)
+        {
+            Entities.Customer currentEntity = MyDBContext.Customer.Find(customer.CID);
+            Entities.Customer newEntity = Mapper.MapCustomer(customer);
+
+            MyDBContext.Entry(currentEntity).CurrentValues.SetValues(newEntity);
+            //
+            MyDBContext.SaveChanges();
         }
 
         public void Save()
