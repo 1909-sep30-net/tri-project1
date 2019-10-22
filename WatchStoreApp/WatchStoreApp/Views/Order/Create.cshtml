@@ -1,0 +1,31 @@
+﻿@model WatchStoreApp.Models.OrderViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1><strong>Place your order below</strong></h1>
+
+<div class="row">
+    <div class="col-mid-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CID" class="control-label"></label>
+                <input asp-for="CID" class="form-control" />
+                <span asp-validation-for="CID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LID" class="control-label"></label>
+                <input asp-for="LID" class="form-control" />
+                <span asp-validation-for="LID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create new order" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to the order directory</a>
+</div>

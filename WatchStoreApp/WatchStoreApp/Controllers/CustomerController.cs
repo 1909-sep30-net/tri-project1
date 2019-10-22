@@ -40,6 +40,11 @@ namespace WatchStoreApp.Controllers
             return View(viewModels);
         }
 
+        public ActionResult Search()
+        {
+            return View();
+        }
+
         // GET: Customer/Details/5
         public ActionResult Details(int id)
         {
@@ -115,9 +120,10 @@ namespace WatchStoreApp.Controllers
                 Repo.UpdateCustomers(customer);
                 Repo.Save();
 
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return View(viewModel);
             }
-            catch
+            catch(Exception)
             {
                 return View(viewModel);
             }

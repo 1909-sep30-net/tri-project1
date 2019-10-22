@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WatchStoreApp.Models.OrderViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1><strong>Order here</strong></h1>
+
+<h4>Below are your options</h4>
+
+<p>
+    <a asp-action="Create">Select customer and location based on ID</a>
+</p>
+
+<p>
+    <a asp-action="Create2">Select your order, product, and amount based on ID</a>
+</p>
+
+<p>
+    <table class="table">
+        <thread>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderTime)
+                </th>
+            </tr>
+        </thread>
+        <tbody>
+            @foreach (var ord in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelOrd => ord.OID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelOrd => ord.CID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelOrd => ord.LID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelOrd => ord.OrderTime)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
+
+@*Add links to placing order, display detail of orders, display order history of store location, display all order history of customer*@
+

@@ -34,6 +34,28 @@ namespace WatchStoreApp.Data.Repositories
             
         }
 
+        public IEnumerable<Business.Order> GetOrders(string name = null)
+        {
+            IQueryable<Entities.Orders> orders = MyDBContext.Orders.AsNoTracking();
+            if(name != null)
+            {
+                //ToString() be careful
+                orders = orders.Where(o => o.Oid.ToString().Contains(name));
+            }
+            return orders.Select(Mapper.MapOrder);
+        }
+
+        //Get all Locations
+        public IEnumerable<Business.Location>GetLocations(string name = null)
+        {
+            IQueryable<Entities.Locations> locations = MyDBContext.Locations.AsNoTracking();
+            if(name != null)
+            {
+                locations = locations.Where(l => l.Located.Contains(name));
+            }
+            return locations.Select(Mapper.MapLocation);
+        }
+
         //Get Customer by their ID
         public Business.Customer GetCustomerID(int id) => Mapper.MapCustomer(MyDBContext.Customer.Find(id));
 
@@ -44,6 +66,20 @@ namespace WatchStoreApp.Data.Repositories
             //will add in later
 
             Entities.Customer entity = Mapper.MapCustomer(customer);
+            MyDBContext.Add(entity);
+            MyDBContext.SaveChanges();
+        }
+
+        public void AddOrders(Business.Order order)
+        {
+            Entities.Orders entity = Mapper.MapOrder(order);
+            MyDBContext.Add(entity);
+            MyDBContext.SaveChanges();
+        }
+
+        public void AddCustomerOrders(Business.CustomerOrder customerOrder)
+        {
+            Entities.CustomerOrder entity = Mapper.MapCustomerOrder(customerOrder);
             MyDBContext.Add(entity);
             MyDBContext.SaveChanges();
         }

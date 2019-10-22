@@ -102,6 +102,10 @@ CREATE TABLE Inventory
 
 --Insert Into Orders(OID, CID, LID, Order_Type, Order_Time) Values(1, 2, 1, 'Stainless steel', '2019-10-15');
 
+Insert Into Orders(CID, LID, Order_Time) Values(1, 1, '2019-10-15');
+
+Insert Into Customer_Order(OID, PID, Amount) Values(1, 1, 1 );
+
 --Insert Into Customer_Order(OID, PID, Amount) Values(1, 1, 2);
 
 --Update Customer
@@ -109,8 +113,8 @@ CREATE TABLE Inventory
 --Where CID = 3;
 
 --Update Customer
---Set Names = 'Cloud Strife', Addresses = 'Midgar', Phone = 7776655
---Where CID = 4;
+--Set Names = 'Albert Wesker', Addresses = 'STARS HQ', Phone = 188855544
+--Where CID = 13;
 
 --Update Locations
 --Set Inventory = 300
@@ -125,11 +129,19 @@ CREATE TABLE Inventory
 --Where Customer.CID = Orders.CID; 
 
 --Select* From Customer; --3
---Select* From Orders; 
+--Select* From Orders; --1
 --Select* From Product; --6
---Select* From Customer_Order;
+--Select* From Customer_Order; --1
 --Select* From Locations; --3
 --Select* From Inventory; --9
+
+--Display Order of customer based on product and locations
+--Doesn't work T_T
+--Select Customer.CID, Customer.Names, Orders.OID, Locations.Located, Product.Names, Product.Model, Product.Price, Customer_Order.Amount
+--From Orders Inner Join Customer_Order 
+--On Orders.OID = Customer_Order.OID Inner Join Product
+--ON Product.PID = Customer_Order.PID Inner Join Locations
+--On Orders.LID = Locations.LID;
 
 --Displays Locations and the stock of the watches they carry
 Select Locations.LID, Locations.Located, Inventory.Quantity, Product.PID, Product.Names, Product.Model, Product.Price

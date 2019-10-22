@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WatchStoreApp.Models.LocationViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1><strong>Locations below</strong></h1>
+
+
+<p>
+    <table class="table">
+        <thread>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Located)
+                </th>
+            </tr>
+        </thread>
+        <tbody>
+            @foreach (var loc in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelLoc => loc.LID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelLoc => loc.Located)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
+
