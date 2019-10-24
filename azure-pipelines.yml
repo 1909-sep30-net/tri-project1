@@ -16,3 +16,24 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: ./WatchStoreApp
+
+- script: dotnet test
+  displayName: dotnet test
+  workingDirectory: WatchStoreApp
+  
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(b5839134-afc5-4925-bf69-3293aa8216e7)'
+    appType: 'webApp'
+    WebAppName: 'joemamapokemon'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+
+- task: DotNetCoreCLI@2
+  displayName: dotnet publish + zip
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    zipAfterPublish: true
