@@ -58,7 +58,7 @@ namespace WatchStoreApp.Controllers
 
         // POST: Customer/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] 
         public ActionResult Create(CustomerViewModel viewModel)
         {
             try
