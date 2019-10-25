@@ -12,9 +12,15 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-
-
 steps:
+- task: SonarCloudPrepare@1
+  displayName: Prepare SonarCloud analysis
+  inputs:
+    SonarCloud: 'sonarcloud-tri'
+    organization: 'tri-nguyen'
+    scannerMode: 'MSBuild'
+    projectKey: 'global-tri'
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: ./WatchStoreApp
@@ -27,7 +33,7 @@ steps:
   displayName: Rune SonarCloud analysis
 
 - task: SonarCloudPublish@1
-  displayName: 
+  displayName: Publish SonarCloud quality gate result
 
 - task: DotNetCoreCLI@2
   displayName: dotnet publish + zip
